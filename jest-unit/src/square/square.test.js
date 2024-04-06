@@ -1,6 +1,9 @@
 const square = require('./square');
 
 describe('Math.pow in the square function', () => {
+    afterEach(() => {
+        jest.clearAllMocks();
+    })
 
     it('should\'t be called with argument = 1 ', () => {
         const spyMathPow = jest.spyOn(Math, 'pow');
