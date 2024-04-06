@@ -37,11 +37,21 @@ describe('axiosReq function', () => {
         };
     });
 
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('should return correct data from remote server', async () => {
         axios.get.mockReturnValue(mockResponse);
         const data = await axiosReq();
         const expected = ['1', '2', '3', '4'];
         expect(axios.get).toBeCalledTimes(1);
         expect(data).toEqual(expected);
+    });
+
+    it('snapShot test', async () => {
+        axios.get.mockReturnValue(mockResponse);
+        const data = await axiosReq();
+        expect(data).toMatchSnapshot();
     });
 });
