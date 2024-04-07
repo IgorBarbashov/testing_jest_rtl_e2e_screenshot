@@ -1,4 +1,5 @@
 import {render, screen, fireEvent} from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 import App from './App';
 
 describe('App component', () => {
@@ -11,7 +12,7 @@ describe('App component', () => {
         expect(buttonElement).toBeInTheDocument();
         expect(inputElement).toBeInTheDocument();
 
-        // screen.debug();
+        screen.debug();
     });
 
     test('should correctly render field input', () => {
@@ -57,5 +58,15 @@ describe('App component', () => {
         fireEvent.change(inputElement, {target: {value: 'iwuerh'}});
         expect(screen.queryByTestId("input-header")).toContainHTML('iwuerh');
         expect(inputElement.value).toBe('iwuerh');
+    });
+
+    test('userEvent tests', async () => {
+        render(<App />);
+        const inputElement = screen.getByPlaceholderText(/enter value/i);
+        expect(screen.queryByTestId("input-header")).toContainHTML('');
+        expect(inputElement.value).toBe('');
+        userEvent.type(inputElement, '76678678');
+        expect(screen.queryByTestId("input-header")).toContainHTML('76678678');
+        expect(inputElement.value).toBe('76678678');
     });
 });
