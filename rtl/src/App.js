@@ -2,6 +2,12 @@ import React, {useState, useEffect} from 'react';
 
 const App = () => {
     const [data, setData] = useState(null);
+    const [toggle, setToggle] = useState(false);
+    const [value, setValue] = useState('');
+
+    const onClick = () => setToggle(prev => !prev);
+    const onChange = (e) => setValue(e.target.value);
+
     useEffect(() => {
         const stid = setTimeout(() => {
             setData({});
@@ -11,13 +17,16 @@ const App = () => {
 
     return (
         <div>
+            {<h2 data-testid="input-header">{value}</h2>}
             {data && <div>data</div>}
+            {toggle && <div data-testid="toggle-elem">toggle</div>}
             <h1>Hello world</h1>
-            <button>click me</button>
+            <button data-testid="toggle-btn" onClick={onClick}>click me</button>
             <input
                 style={{color: 'red'}}
                 type="text"
                 placeholder="enter value"
+                onChange={onChange}
             />
         </div>
     );

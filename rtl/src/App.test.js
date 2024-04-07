@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import {render, screen, fireEvent} from '@testing-library/react';
 import App from './App';
 
 describe('App component', () => {
@@ -34,5 +34,28 @@ describe('App component', () => {
         expect(inputElement).toBeInTheDocument();
         expect(inputElement).toHaveStyle({color: 'red;'});
         screen.debug();
+    });
+
+    test('click event', async () => {
+        render(<App />);
+        const btn = screen.getByTestId("toggle-btn");
+        expect(screen.queryByTestId("toggle-elem")).toBeNull();
+        fireEvent.click(btn);
+        expect(screen.queryByTestId("toggle-elem")).toBeInTheDocument();
+        fireEvent.click(btn);
+        expect(screen.queryByTestId("toggle-elem")).toBeNull();
+    });
+
+    test('change event', async () => {
+        render(<App />);
+        const inputElement = screen.getByPlaceholderText(/enter value/i);
+        expect(screen.queryByTestId("input-header")).toContainHTML('');
+        expect(inputElement.value).toBe('');
+        fireEvent.input(inputElement, {target: {value: 'usder'}});
+        expect(screen.queryByTestId("input-header")).toContainHTML('usder');
+        expect(inputElement.value).toBe('usder');
+        fireEvent.change(inputElement, {target: {value: 'iwuerh'}});
+        expect(screen.queryByTestId("input-header")).toContainHTML('iwuerh');
+        expect(inputElement.value).toBe('iwuerh');
     });
 });
