@@ -3,7 +3,9 @@ import React from 'react';
 const App = () => {
     return (
         <div>
-            Hello
+            <h1>Hello world</h1>
+            <button>click me</button>
+            <input type="text" placeholder="enter value" />
         </div>
     );
 };
