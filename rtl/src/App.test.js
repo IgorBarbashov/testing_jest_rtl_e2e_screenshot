@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('App component', () => {
     render(<App />);
     const helloWorldElement = screen.getByText(/hello world/i);
     const buttonElement = screen.getByRole('button');
@@ -9,6 +9,8 @@ test('renders learn react link', () => {
     expect(helloWorldElement).toBeInTheDocument();
     expect(buttonElement).toBeInTheDocument();
     expect(inputElement).toBeInTheDocument();
+
+    expect(inputElement).toMatchSnapshot();
 
     screen.debug();
 });
