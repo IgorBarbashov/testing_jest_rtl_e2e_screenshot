@@ -11,7 +11,7 @@ describe('App component', () => {
         expect(buttonElement).toBeInTheDocument();
         expect(inputElement).toBeInTheDocument();
 
-        screen.debug();
+        // screen.debug();
     });
 
     test('should correctly render field input', () => {
@@ -25,5 +25,14 @@ describe('App component', () => {
         const inputElement = screen.queryByText(/try to find me/i);
         expect(inputElement).not.toBeInTheDocument();
         expect(inputElement).toBeNull();
+    });
+
+    test('async test', async () => {
+        render(<App />);
+        screen.debug();
+        const inputElement = await screen.findByText(/data/i);
+        expect(inputElement).toBeInTheDocument();
+        expect(inputElement).toHaveStyle({color: 'red;'});
+        screen.debug();
     });
 });

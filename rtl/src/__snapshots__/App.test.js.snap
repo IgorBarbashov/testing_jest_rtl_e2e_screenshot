@@ -1,22 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component negative test 1`] = `
-<input
-  placeholder="enter value"
-  type="text"
-/>
-`;
-
-exports[`App component negftive test 1`] = `
-<input
-  placeholder="enter value"
-  type="text"
-/>
-`;
-
 exports[`App component should correctly render field input 1`] = `
 <input
   placeholder="enter value"
+  style="color: red;"
   type="text"
 />
 `;
