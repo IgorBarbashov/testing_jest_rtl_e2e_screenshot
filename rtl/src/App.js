@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import AppRouter from "./router/AppRouter";
 
 const App = () => {
@@ -33,11 +33,7 @@ const App = () => {
                 />
             </div>
             <div>
-                <Link to='/' data-testid='main-link'>main</Link>
-                {' '}
-                <Link to='/about' data-testid='about-link'>about</Link>
-                {' '}
-                <Link to='/posts' data-testid='posts-link'>posts</Link>
+                <Navbar />
                 <AppRouter />
             </div>
         </>
