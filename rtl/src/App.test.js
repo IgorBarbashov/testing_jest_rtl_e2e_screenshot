@@ -1,10 +1,11 @@
 import {render, screen, fireEvent} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
+import {MemoryRouter} from "react-router-dom";
 import App from './App';
 
 describe('App component', () => {
     test('should render fields', () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const helloWorldElement = screen.getByText(/hello world/i);
         const buttonElement = screen.getByRole('button');
         const inputElement = screen.getByPlaceholderText(/enter value/i);
@@ -12,33 +13,33 @@ describe('App component', () => {
         expect(buttonElement).toBeInTheDocument();
         expect(inputElement).toBeInTheDocument();
 
-        screen.debug();
+        // screen.debug();
     });
 
     test('should correctly render field input', () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const inputElement = screen.getByPlaceholderText(/enter value/i);
         expect(inputElement).toMatchSnapshot();
     });
 
     test('negative test', () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const inputElement = screen.queryByText(/try to find me/i);
         expect(inputElement).not.toBeInTheDocument();
         expect(inputElement).toBeNull();
     });
 
     test('async test', async () => {
-        render(<App />);
-        screen.debug();
+        render(<MemoryRouter><App /></MemoryRouter>);
+        // screen.debug();
         const inputElement = await screen.findByText(/data/i);
         expect(inputElement).toBeInTheDocument();
         expect(inputElement).toHaveStyle({color: 'red;'});
-        screen.debug();
+        // screen.debug();
     });
 
     test('click event', async () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const btn = screen.getByTestId("toggle-btn");
         expect(screen.queryByTestId("toggle-elem")).toBeNull();
         fireEvent.click(btn);
@@ -48,7 +49,7 @@ describe('App component', () => {
     });
 
     test('change event', async () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const inputElement = screen.getByPlaceholderText(/enter value/i);
         expect(screen.queryByTestId("input-header")).toContainHTML('');
         expect(inputElement.value).toBe('');
@@ -61,7 +62,7 @@ describe('App component', () => {
     });
 
     test('userEvent tests', async () => {
-        render(<App />);
+        render(<MemoryRouter><App /></MemoryRouter>);
         const inputElement = screen.getByPlaceholderText(/enter value/i);
         expect(screen.queryByTestId("input-header")).toContainHTML('');
         expect(inputElement.value).toBe('');
