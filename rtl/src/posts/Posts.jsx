@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import axios from "axios";
 
 const Posts = () => {
@@ -14,13 +15,15 @@ const Posts = () => {
     }, []);
 
     return (
-        <div>
+        <div data-testid="posts-page">
             {posts.map(post => (
-                <div
-                    key={post.id}
-                    data-testid="post-item"
-                >
-                    {post.title}
+                <div key={post.id}>
+                    <Link
+                        data-testid="post-item"
+                        to={`/posts/${post.id}`}
+                    >
+                        {`${post.id} - ${post.title}`}
+                    </Link>
                 </div>
             ))}
         </div>
