@@ -18,4 +18,14 @@ describe('Router test', () => {
         userEvent.click(mainLink);
         expect(screen.getByTestId('main-page')).toBeInTheDocument();
     });
+
+    test('should go through not exist link', () => {
+        render(
+            <MemoryRouter initialEntries={['/no-exist-link']}>
+                <App />
+            </MemoryRouter>
+        );
+
+        expect(screen.getByTestId('not-found-page')).toBeInTheDocument();
+    });
 });

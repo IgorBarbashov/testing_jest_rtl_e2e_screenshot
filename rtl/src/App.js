@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, Route, Routes} from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
 import MainPage from "./pages/MainPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<MainPage />} />
                 <Route path='/about' element={<AboutPage />} />
+                <Route path='*' element={<NotFoundPage />} />
             </Routes>
         </>
     );
