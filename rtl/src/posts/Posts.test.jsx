@@ -1,10 +1,10 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
-import {MemoryRouter, Route, Routes} from "react-router-dom";
-import axios from "axios";
-import Posts from "./Posts";
-import PostDetailsPage from "./PostDetailsPage";
 import React from "react";
+import {MemoryRouter} from "react-router-dom";
+import axios from "axios";
+import AppRouter from "../router/AppRouter";
+import Posts from "./Posts";
 
 jest.mock('axios');
 
@@ -38,11 +38,9 @@ describe('Posts component', () => {
 
     test('should render post details page', async () => {
         render(
-            <MemoryRouter initialEntries={['/posts']}>
-                <Routes>
-                    <Route path='/posts' element={<Posts />} />
-                    <Route path='/posts/:id' element={<PostDetailsPage />} />
-                </Routes>
+            <MemoryRouter>
+                <AppRouter />
+                <Posts />
             </MemoryRouter>
         );
 

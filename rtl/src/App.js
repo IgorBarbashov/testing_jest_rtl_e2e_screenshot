@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Link, Route, Routes} from "react-router-dom";
-import AboutPage from "./pages/AboutPage";
-import MainPage from "./pages/MainPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import Posts from "./posts/Posts";
-import PostDetailsPage from "./posts/PostDetailsPage";
+import {Link} from "react-router-dom";
+import AppRouter from "./router/AppRouter";
 
 const App = () => {
     const [data, setData] = useState(null);
@@ -42,13 +38,7 @@ const App = () => {
                 <Link to='/about' data-testid='about-link'>about</Link>
                 {' '}
                 <Link to='/posts' data-testid='posts-link'>posts</Link>
-                <Routes>
-                    <Route path='/' element={<MainPage />} />
-                    <Route path='/about' element={<AboutPage />} />
-                    <Route path='/posts' element={<Posts />} />
-                    <Route path='/posts/:id' element={<PostDetailsPage />} />
-                    <Route path='*' element={<NotFoundPage />} />
-                </Routes>
+                <AppRouter />
             </div>
         </>
 

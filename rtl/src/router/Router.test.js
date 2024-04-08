@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import {MemoryRouter} from "react-router-dom";
-import App from './App';
+import App from '../App';
 
 describe('Router test', () => {
     test('should go through links', () => {
