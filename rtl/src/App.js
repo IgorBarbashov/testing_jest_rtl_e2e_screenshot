@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
 import MainPage from "./pages/MainPage";
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <>
             <Link to='/' data-testid='main-link'>main</Link>
             {' '}
             <Link to='/about' data-testid='about-link'>about</Link>
@@ -13,7 +13,7 @@ const App = () => {
                 <Route path='/' element={<MainPage />} />
                 <Route path='/about' element={<AboutPage />} />
             </Routes>
-        </BrowserRouter>
+        </>
     );
 };
 
