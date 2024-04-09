@@ -17,9 +17,9 @@ const CounterTest = () => {
 
     return (
         <div>
-            <h1>{value}</h1>
-            <button onClick={onIncrement}>Increment</button>
-            <button onClick={onDecrement}>Decrement</button>
+            <h1 data-testid='counter-value'>{value}</h1>
+            <button data-testid='counter-increment-button' onClick={onIncrement}>Increment</button>
+            <button data-testid='counter-decrement-button' onClick={onDecrement}>Decrement</button>
         </div>
     );
 };
