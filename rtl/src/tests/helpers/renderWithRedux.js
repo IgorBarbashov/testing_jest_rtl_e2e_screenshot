@@ -2,8 +2,8 @@ import {render} from "@testing-library/react";
 import {Provider} from "react-redux";
 import {createReduxStore} from "../../srore/store";
 
-export const renderWithRedux = (component, preloadedState) => {
-    const store = createReduxStore(preloadedState);
+export const renderWithRedux = (component, initialState) => {
+    const store = createReduxStore(initialState);
     return render(
         <Provider store={store}>
             {component}
