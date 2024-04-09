@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-const HelloWorld = () => {
+const HelloWorldPage = () => {
     const [value, setValue] = useState('');
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
 
     const onChange = (e) => {
         setValue(e.target.value);
@@ -22,4 +22,4 @@ const HelloWorld = () => {
     );
 };
 
-export default HelloWorld;
+export default HelloWorldPage;

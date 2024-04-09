@@ -6,10 +6,10 @@ import App from './App';
 describe('App component', () => {
     test('should render fields', () => {
         render(<MemoryRouter><App /></MemoryRouter>);
-        const helloWorldElement = screen.getByText(/hello world/i);
+        const testAppElement = screen.getByText(/test app/i);
         const buttonElement = screen.getByRole('button');
         const inputElement = screen.getByPlaceholderText(/enter value/i);
-        expect(helloWorldElement).toBeInTheDocument();
+        expect(testAppElement).toBeInTheDocument();
         expect(buttonElement).toBeInTheDocument();
         expect(inputElement).toBeInTheDocument();
 

@@ -23,7 +23,7 @@ const App = () => {
                 {<h2 data-testid="input-header">{value}</h2>}
                 {data && <div>data</div>}
                 {toggle && <div data-testid="toggle-elem">toggle</div>}
-                <h1>Hello world</h1>
+                <h1>Test App</h1>
                 <button data-testid="toggle-btn" onClick={onClick}>click me</button>
                 <input
                     style={{color: 'red'}}

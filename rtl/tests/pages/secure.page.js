@@ -11,6 +11,10 @@ class SecurePage extends Page {
     get flashAlert () {
         return $('#flash');
     }
+
+    open (path) {
+        return browser.url(`https://the-internet.herokuapp.com/${path}`)
+    }
 }
 
 module.exports = new SecurePage();
