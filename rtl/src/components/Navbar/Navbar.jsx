@@ -9,7 +9,8 @@ const Navbar = () => {
             <Link to='/about' data-testid='about-link'>about</Link>
             {' '}
             <Link to='/posts' data-testid='posts-link'>posts</Link>
-
+            {' '}
+            <Link to='/hello-world' data-testid='hello-world'>hello world</Link>
         </>
     );
 };
