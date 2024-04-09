@@ -24,13 +24,17 @@ const PostsForTest = () => {
     return (
         <div>
             {isLoading && <h1 id="posts-loading">Идет загрузка...</h1>}
-            {posts.length && (
+            {posts.length ? (
                 <div id="posts-list">
                     {posts.map(post => (
-                        <Post onDelete={onDelete} post={post} />
+                        <Post
+                            key={post.id}
+                            onDelete={onDelete}
+                            post={post}
+                        />
                     ))}
                 </div>
-            )}
+            ) : null}
         </div>
     );
 };

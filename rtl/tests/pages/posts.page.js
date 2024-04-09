@@ -37,10 +37,10 @@ class PostsPage extends Page {
             const postsCountAfterDelete = await this.postsItems.length;
 
             if (postsCount - postsCountAfterDelete !== 1) {
-                throw new Error('Error occurred during deleting post.');
+                throw new Error(`Error occurred during deleting post (${postsCount} - ${postsCountAfterDelete}).`);
             }
         } catch (e) {
-            throw new Error('Can\'t delete post' + e.error.message);
+            throw new Error('Can\'t delete post' + ' ' + e?.message);
         }
     }
 
