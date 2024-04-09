@@ -1,1 +1,1 @@
-export const getCounterValue = ({counter}) => counter.value;
+export const getCounterValue = (state) => state?.counter?.value ?? 0;
