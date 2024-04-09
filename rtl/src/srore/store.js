@@ -5,8 +5,9 @@ const rootReducer = combineReducers({
     counter: counterReducer
 });
 
-export const createReduxStore = () => {
+export const createReduxStore = (preloadedState = {}) => {
     return configureStore({
-        reducer: rootReducer
+        reducer: rootReducer,
+        preloadedState
     });
 };
