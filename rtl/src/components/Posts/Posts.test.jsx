@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 import axios from "axios";
 import Posts from "./Posts";
-import {renderWithRouter} from "../tests/helpers/renderWithRouter";
+import {renderWithRouter} from "../../tests/helpers/renderWithRouter";
 
 jest.mock('axios');
 
@@ -27,7 +27,7 @@ describe('Posts component', () => {
         jest.clearAllMocks()
     });
 
-    test('should render posts list', async () => {
+    test('should render Posts list', async () => {
         renderWithRouter(<Posts />);
         const posts = await screen.findAllByTestId("post-item");
         expect(posts.length).toBe(4);
@@ -36,7 +36,7 @@ describe('Posts component', () => {
     });
 
     test('should render post details page', async () => {
-        renderWithRouter(null, '/posts');
+        renderWithRouter(null, '/Posts');
         const posts = await screen.findAllByTestId("post-item");
         userEvent.click(posts[0]);
         expect(screen.getByTestId('post-details-page')).toBeInTheDocument();
