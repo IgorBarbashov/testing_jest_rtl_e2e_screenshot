@@ -2,10 +2,19 @@ import {render, screen} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import {MemoryRouter} from "react-router-dom";
 import App from '../App';
+import {Provider} from "react-redux";
+import {createReduxStore} from "../store/store";
 
 describe('Router test', () => {
     test('should go through links', () => {
-        render(<MemoryRouter><App /></MemoryRouter>);
+        render(
+            <Provider store={createReduxStore()}>
+                <MemoryRouter initialEntries={['/']}>
+                    <App />
+                </MemoryRouter>
+            </Provider>
+        );
+
         const mainLink = screen.getByTestId('main-link');
         const aboutLink = screen.getByTestId('about-link');
 

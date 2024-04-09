@@ -1,9 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getCounterValue} from "../../srore/selectors/getCounterValue/getCounterValue";
-import {decrement, increment} from "../../srore/reducers/counterReducer";
+import {getCounterValue} from "../../store/selectors/getCounterValue/getCounterValue";
+import {decrement, increment} from "../../store/reducers/counterReducer";
 
-const CounterTest = () => {
+const Counter = () => {
     const dispatch = useDispatch();
     const value = useSelector(getCounterValue);
 
@@ -24,4 +24,4 @@ const CounterTest = () => {
     );
 };
 
-export default CounterTest;
+export default Counter;

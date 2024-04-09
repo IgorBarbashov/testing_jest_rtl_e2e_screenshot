@@ -16,7 +16,7 @@ describe('App component', () => {
         expect(buttonElement).toBeInTheDocument();
         expect(inputElement).toBeInTheDocument();
 
-        screen.debug();
+        // screen.debug();
     });
 
     test('should correctly render field input', () => {
@@ -34,11 +34,11 @@ describe('App component', () => {
 
     test('async test', async () => {
         renderTestApp(<App />);
-        screen.debug();
+        // screen.debug();
         const inputElement = await screen.findByText(/data/i);
         expect(inputElement).toBeInTheDocument();
         expect(inputElement).toHaveStyle({color: 'red;'});
-        screen.debug();
+        // screen.debug();
     });
 
     test('click event', async () => {

@@ -1,9 +1,9 @@
-import {render, screen} from '@testing-library/react';
+import {screen} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import axios from "axios";
 import Posts from "./Posts";
-import {renderWithRouter} from "../../tests/helpers/renderWithRouter";
+import {renderTestApp} from "../../tests/helpers/renderTestApp";
 
 jest.mock('axios');
 
@@ -28,15 +28,17 @@ describe('Posts component', () => {
     });
 
     test('should render Posts list', async () => {
-        renderWithRouter(<Posts />);
+        renderTestApp(<Posts />);
         const posts = await screen.findAllByTestId("post-item");
         expect(posts.length).toBe(4);
         expect(axios.get).toBeCalledTimes(1);
-        screen.debug();
+        // screen.debug();
     });
 
     test('should render post details page', async () => {
-        renderWithRouter(null, '/Posts');
+        renderTestApp(null, {
+            initialRoute: '/posts'
+        });
         const posts = await screen.findAllByTestId("post-item");
         userEvent.click(posts[0]);
         expect(screen.getByTestId('post-details-page')).toBeInTheDocument();

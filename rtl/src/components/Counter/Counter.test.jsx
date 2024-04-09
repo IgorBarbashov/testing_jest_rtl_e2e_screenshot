@@ -1,5 +1,5 @@
 import userEvent from "@testing-library/user-event";
-import {renderTestApp} from "../../../tests/helpers/renderTestApp";
+import {renderTestApp} from "../../tests/helpers/renderTestApp";
 
 describe('Counter Component', () => {
     test('render initial state value', async () => {
